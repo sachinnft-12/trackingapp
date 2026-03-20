@@ -1,5 +1,5 @@
-import Layout from '@/components/layout';
-import { Button } from '@/components/ui/button';
+import Layout from '@/Components/layout';
+import { Button } from '@/Components/ui/button';
 import { PlusIcon, PencilIcon, TrashIcon } from 'lucide-react';
 import { Head, Link, router, usePage } from '@inertiajs/react';
 import { toast } from 'sonner';
@@ -8,7 +8,7 @@ import { PageProps } from '@/types';
 import {
   Dialog, DialogContent, DialogDescription,
   DialogFooter, DialogHeader, DialogTitle,
-} from '@/components/ui/dialog';
+} from '@/Components/ui/dialog';
 
 type TrackingCode = {
   id: number;
@@ -44,12 +44,13 @@ export default function TrackingCodesIndex({ trackingCodes }: Props) {
       <Head title="Tracking Codes" />
 
       <div className="flex justify-end">
-        <Button asChild className="gap-2">
-          <Link href={route('settings.tracking-codes.create')}>
-            <PlusIcon className="size-3.5" />
-            Add Tracking Code
-          </Link>
-        </Button>
+        <Link
+          href={route('settings.tracking-codes.create')}
+          className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white shadow-sm transition-opacity hover:opacity-90"
+        >
+          <PlusIcon className="size-3.5" />
+          Add Tracking Code
+        </Link>
       </div>
 
       <div className="h-6" />
@@ -108,15 +109,18 @@ export default function TrackingCodesIndex({ trackingCodes }: Props) {
               </DialogDescription>
             </DialogHeader>
             <DialogFooter>
-              <Button variant="ghost" size="sm" onClick={closeDelete}>Cancel</Button>
-              <Button
-                variant="ghost"
-                size="sm"
-                className="text-destructive"
+              <button
+                onClick={closeDelete}
+                className="rounded-md px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100"
+              >
+                Cancel
+              </button>
+              <button
                 onClick={() => toDelete && handleDelete(toDelete)}
+                className="rounded-md px-4 py-2 text-sm font-medium text-red-600 hover:bg-red-50"
               >
                 Yes, delete
-              </Button>
+              </button>
             </DialogFooter>
           </div>
         </DialogContent>

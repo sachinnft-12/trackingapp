@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
 
 const STORAGE_KEY = 'cookie_consent';
 const TTL_DAYS = 30;
@@ -40,8 +39,18 @@ export function CookieBanner({ onAccept, onReject }: Props) {
           You can accept or reject non-essential tracking below.
         </p>
         <div className="mt-4 flex shrink-0 gap-2 sm:mt-0">
-          <Button variant="outline" size="sm" onClick={handleReject}>Reject all</Button>
-          <Button size="sm" onClick={handleAccept}>Accept all</Button>
+          <button
+            onClick={handleReject}
+            className="rounded-lg border border-gray-200 px-4 py-2 text-sm font-semibold text-gray-700 transition-colors hover:bg-gray-50"
+          >
+            Reject all
+          </button>
+          <button
+            onClick={handleAccept}
+            className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white shadow-sm transition-opacity hover:opacity-90"
+          >
+            Accept all
+          </button>
         </div>
       </div>
     </div>

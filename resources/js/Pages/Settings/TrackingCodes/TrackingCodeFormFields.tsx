@@ -1,7 +1,7 @@
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { Switch } from "@/components/ui/switch";
+import { Input } from "@/Components/ui/input";
+import { Label } from "@/Components/ui/label";
+import { Textarea } from "@/Components/ui/textarea";
+import { Switch } from "@/Components/ui/switch";
 
 export type TrackingCodeFormData = {
   name: string;
@@ -57,7 +57,7 @@ export function TrackingCodeFormFields({ data, errors, setData }: Props) {
         />
         {errors.script && <p className="text-sm text-destructive">{errors.script}</p>}
         <p className="text-sm text-muted-foreground">
-          Paste the JavaScript without &lt;script&gt; tags — we wrap it automatically when executing.
+          Paste the JavaScript without &lt;script&gt; tags — we wrap it automatically.
         </p>
       </div>
 

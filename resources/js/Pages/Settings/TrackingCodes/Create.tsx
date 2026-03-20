@@ -1,5 +1,4 @@
-import Layout from '@/components/layout';
-import { Button } from '@/components/ui/button';
+import Layout from '@/Components/layout';
 import { Head, useForm } from '@inertiajs/react';
 import { TrackingCodeFormData, TrackingCodeFormFields } from './TrackingCodeFormFields';
 
@@ -22,12 +21,21 @@ export default function TrackingCodesCreate() {
         <form onSubmit={handleSubmit} className="space-y-8">
           <TrackingCodeFormFields data={data} errors={errors} setData={setData} />
           <div className="flex justify-end gap-3">
-            <Button type="button" variant="outline" onClick={() => window.history.back()} disabled={processing}>
+            <button
+              type="button"
+              onClick={() => window.history.back()}
+              disabled={processing}
+              className="rounded-lg border border-gray-200 px-4 py-2 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-50 disabled:opacity-50"
+            >
               Cancel
-            </Button>
-            <Button type="submit" disabled={processing}>
+            </button>
+            <button
+              type="submit"
+              disabled={processing}
+              className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white shadow-sm transition-opacity hover:opacity-90 disabled:opacity-50"
+            >
               {processing ? 'Saving...' : 'Save Tracking Code'}
-            </Button>
+            </button>
           </div>
         </form>
       </div>
